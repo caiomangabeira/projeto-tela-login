@@ -1,0 +1,8 @@
+.divhome {
+    width: 80vw;
+    background-color: #ffffff21;
+    color: #fff;
+    padding: 40px;
+    border: 2px solid rgba(255, 255, 255, 0.247);
+    border-radius: 10px;
+}

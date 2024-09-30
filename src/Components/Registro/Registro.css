@@ -1,4 +1,4 @@
-.divlogin {
+.divregistro {
     width: 450px;
     background-color: rgba(255, 255, 255, 0.15);
     backdrop-filter: blur(10px);
@@ -7,20 +7,20 @@
     border-radius: 10px;
 }
 
-.divlogin h1 {
+.divregistro h1 {
     text-align: center;
     font-size: 30px;
     color: #fff;
 }
 
-.divlogin .input-field {
+.divregistro .input-field-registro {
     position: relative;
     width: 100%;
     height: 50px;
     margin: 30px auto;
 }
 
-.input-field input {
+.input-field-registro input {
     width: 100%;
     height: 100%;
     background-color: transparent;
@@ -32,11 +32,11 @@
     border-radius: 40px;
 }
 
-.input-field input::placeholder {
+.input-field-registro input::placeholder {
     color: #fff;
 }
 
-.input-field .icon {
+.input-field-registro .icon {
     position: absolute;
     right: 25px;
     top: 50%;
@@ -45,7 +45,7 @@
     font-size: 18px;
 }
 
-.divlogin button {
+.divregistro button {
     width: 100%;
     height: 50px;
     background-color: #fff;
@@ -57,47 +57,4 @@
     font-size: 16px;
     font-weight: 600;
     text-shadow: none;
-}
-
-.divlogin .signup-link {
-    font-size: 15px;
-    text-align: center;
-    text-shadow: none;
-    margin: 20px 0 10px;
-}
-
-.divlogged {
-    color: #fff;
-}
-
-.divlogged h1 {
-    margin: 10px;
-}
-
-.divlogged p {
-    margin: 10px;
-}
-
-.divlogged button {
-    width: 100%;
-    height: 50px;
-    background-color: #fff;
-    border: none;
-    outline: none;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    border-radius: 40px;
-    cursor: pointer;
-    font-size: 16px;
-    font-weight: 600;
-    text-shadow: none;
-    margin: 10px;
-}
-
-.signup-link .link {
-    color: #fff;
-    text-decoration: none;
-}
-
-.signup-link .link:hover {
-    text-decoration: underline;
 }

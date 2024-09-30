@@ -1,59 +1,26 @@
 import {FaUser, FaLock} from 'react-icons/fa';
-import {useState, useEffect} from 'react';
+import {useState} from 'react';
+import {Link, useNavigate} from 'react-router-dom';
 import './Login.css';
+import '../Home/Home'
 
 const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [isLogged, setIsLogged] = useState(false);
-  const [rememberMe, setRememberMe] = useState(false);
-
-  useEffect(() => {
-    const storedUsername = localStorage.getItem("username");
-    const storedPassword = localStorage.getItem("password");
-
-    if (storedUsername && storedPassword) {
-        setUsername(storedUsername);
-        setPassword(storedPassword);
-        setRememberMe(true);
-    }
-}, []);
+  const navigate = useNavigate();
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    
-    if (username === "usuario@gmail.com" && password === "senha") {
-      setIsLogged(true); 
-      if (rememberMe) {
-        localStorage.setItem("username", username);
-        localStorage.setItem("password", password);
-      } else {
-        localStorage.removeItem("username");
-        localStorage.removeItem("password");
-      }
-      setError(""); 
+    const storedUser = JSON.parse(localStorage.getItem('user'));
+
+    if (storedUser && storedUser.username === username && storedUser.password === password) {
+      alert('Login bem-sucedido! Você será redirecionado para a página.');
+      navigate('/home');
     } else {
-      alert("Credenciais inválidas"); 
+      alert('Usuário ou senha inválidos. Tente novamente.');
     }
-  };
-
-        const handleLogout = () => {
-            setIsLogged(false);
-            setUsername("");
-            setPassword("");
-            localStorage.removeItem("username");
-            localStorage.removeItem("password"); 
-          };
-
-        if (isLogged) {
-        return (
-        <div className='divlogged'>
-        <h1>Bem vindo, {username}!</h1>
-        <p>Conteúdo exclusivo para usuários autenticados.</p>
-        <button onClick={handleLogout}>Sair</button>
-        </div>
-        )
-  }
+   };
+  
 
   return (
     <div className='divlogin'>
@@ -63,6 +30,7 @@ const Login = () => {
             <input 
             type="email" 
             placeholder='E-mail' 
+            value={username}
             required
             onChange={(e) => setUsername(e.target.value)} 
             />
@@ -72,28 +40,17 @@ const Login = () => {
             <input 
             type="password" 
             placeholder='Senha' 
+            value={password}
             required
             onChange={(e) => setPassword(e.target.value)} 
             />
             <FaLock className='icon' />
           </div>
 
-          <div className='recall-forget'>
-            <label>
-                <input 
-                type="checkbox" 
-                checked={rememberMe}
-                onChange={() => setRememberMe(!rememberMe)}
-                 />
-                Lembre de mim
-            </label>
-            <a href="#">Esqueceu a senha?</a>
-          </div>
-
           <button>Entrar</button>
 
           <div className='signup-link'>
-            <p>Não tem uma conta? <a href="#">Registrar</a></p>
+            <p>Não tem uma conta? <Link className='link' to="/registro"> Registrar </Link></p>
           </div>
 
       </form>
@@ -101,4 +58,4 @@ const Login = () => {
   )
 }
 
-export default Login
+export default Login;
