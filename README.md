@@ -1,2 +1,2 @@
 # projeto-tela-login
- Tela de login
+ Esta é uma página que exibe uma simples tela de login. Já possui um usuário cadastrado, com o e-mail sendo "usuario@gmail.com" e a senha sendo "senha". Quando você entra com esses dados, ocorre uma renderização condicional, exibindo um conteúdo exclusivo para usuários cadastrados. Você ainda pode marcar a caixa "Lembre de mim" para os dados que você inserir continuar nos campos.
