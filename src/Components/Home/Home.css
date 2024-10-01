@@ -6,3 +6,18 @@
     border: 2px solid rgba(255, 255, 255, 0.247);
     border-radius: 10px;
 }
+
+.divhome button {
+    width: 100%;
+    height: 50px;
+    background-color: #fff;
+    border: none;
+    outline: none;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 40px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    text-shadow: none;
+    margin-top: 20px;
+}

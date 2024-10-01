@@ -1,5 +1,5 @@
-import {FaUser, FaLock} from 'react-icons/fa';
-import React, {useState} from 'react'
+import { FaUser, FaLock } from 'react-icons/fa';
+import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import './Registro.css';
 
@@ -10,38 +10,40 @@ const Registro = () => {
 
   const handleRegister = (e) => {
     e.preventDefault();
-    const user = { username, password };
-    localStorage.setItem('user', JSON.stringify(user));
-    alert('Usuário registrado com sucesso! Você será redirecionado para página de login.');
-    navigate('/');
+    if (username === "" || password === "") {
+      alert("Por favor, preencha todos os campos.");
+    } else {
+      const user = { username, password };
+      localStorage.setItem('user', JSON.stringify(user));
+      alert('Usuário registrado com sucesso! Você será redirecionado para página de login.');
+      navigate('/');
+    }
   };
 
   return (
     <div className='divregistro'>
       <form onSubmit={handleRegister}>
         <h1>Faça seu cadastro</h1>
-          <div className='input-field-registro'>
-            <input 
-            type="email" 
-            placeholder='Crie seu e-mail' 
+        <div className='input-field-registro'>
+          <input
+            type="email"
+            placeholder='Crie seu e-mail'
             value={username}
-            required
-            onChange={(e) => setUsername(e.target.value)} 
-            />
-            <FaUser className='icon' />
-          </div>
-          <div className='input-field-registro'>
-            <input 
-            type="password" 
-            placeholder='Crie sua senha' 
+            onChange={(e) => setUsername(e.target.value)}
+          />
+          <FaUser className='icon' />
+        </div>
+        <div className='input-field-registro'>
+          <input
+            type="password"
+            placeholder='Crie sua senha'
             value={password}
-            required
-            onChange={(e) => setPassword(e.target.value)} 
-            />
-            <FaLock className='icon' />
-          </div>
+            onChange={(e) => setPassword(e.target.value)}
+          />
+          <FaLock className='icon' />
+        </div>
 
-          <button type='submit'>Registrar</button>
+        <button type='submit'>Registrar</button>
       </form>
     </div>
   )
